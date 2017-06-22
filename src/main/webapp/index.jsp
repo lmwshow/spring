@@ -8,12 +8,10 @@
 </head>
 <body>
 	<div style="margin:0 auto; padding-top: 100px; font-size: 18px;" align="center">
-		<p><a href="login.html"> 登录系统 </a></p>
+		<p><a href="/login"> 登录系统 </a></p>
 	</div>
 
-	<div style="margin:0 auto; padding-top: 100px; font-size: 18px;" align="center">
-		<p><a href="register.html"> 注册系统 </a></p>
-	</div>
+
 
 </body>
 </html>

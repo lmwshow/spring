@@ -11,16 +11,16 @@ import javax.xml.stream.Location;
  * Created by Gracecoder on 2017/6/23.
  */
 
-@RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations= {"classpath:applicationContext.xml"})
-public class Test {
-
-    @Autowired
-    private IUserService service;
-
-    @org.junit.Test
-    public void test()
-    {
-        service.say();
-    }
-}
+//@RunWith(SpringJUnit4ClassRunner.class)
+//@ContextConfiguration(locations= {"classpath:applicationContext.xml"})
+//public class Test {
+//
+//    @Autowired
+//    private IUserService service;
+//
+////    @org.junit.Test
+////    public void test()
+////    {
+////        service.say();
+////    }
+//}

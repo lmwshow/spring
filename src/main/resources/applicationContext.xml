@@ -6,14 +6,14 @@
 
     <context:component-scan base-package="com.springmvc4.*" />
 
-    <context:property-placeholder location="classpath:jdbc.properties"></context:property-placeholder>
+    <context:property-placeholder location="classpath:jdbc.properties" />
 
     <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource" init-method="init" destroy-method="close">
         <property name="driverClassName" value="${driver}"/>
         <property name="name" value="topsales-saas"/>
         <property name="url" value="${url}" />
-        <property name="username" value="${username}" />
-        <property name="password" value="${password}" />
+        <property name="username" value="root" />
+        <property name="password" value="123456" />
         <property name="filters" value="stat" />
         <property name="connectionProperties" value="druid.stat.slowSqlMillis=500" />
 
@@ -36,7 +36,10 @@
     <bean name="sqlSessionFactory" id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
         <property name="dataSource" ref="dataSource"></property>
         <property name="configLocation" value="classpath:MyBatisConfig.xml"></property>
-        <property name="mapperLocations" value="classpath*:com/springmvc4/map/*.xml" />
+        <!--<property name="mapperLocations" value="classpath*:com/springmvc4/map/*.xml" />-->
+
+        <property name="mapperLocations" value="classpath*:map/User.xml" />
+
     </bean>
 
 

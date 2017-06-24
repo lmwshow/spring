@@ -23,7 +23,7 @@
 
     <!-- 别名配置 -->
     <typeAliases>
-        <typeAlias type="com.springmvc4.domain.User" alias="User"></typeAlias>
+        <typeAlias type="com.springmvc4.domain.User" alias="User" />
     </typeAliases>
 
     <!--&lt;!&ndash; 连库配置&ndash;&gt;-->

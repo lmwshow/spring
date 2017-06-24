@@ -1,6 +1,6 @@
 package com.springmvc4.web;
 
-import com.springmvc4.service.UserService;
+import com.springmvc4.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,12 +15,16 @@ import javax.servlet.http.HttpServletRequest;
 @Controller
 public class UserController {
 
+    //因为只有一个实现类，多个实现类可以用 @Qualifier("") 区分
+
     @Autowired
-    private UserService userService;
+    private IUserService userService;
 
     @RequestMapping("/say")
     public String say(HttpServletRequest request, Model model)
     {
+
+        request.setAttribute("use",userService.say());
         request.setAttribute("msg",userService.say());
 
         model.addAttribute("name","limingwei");

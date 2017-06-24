@@ -3,13 +3,7 @@ import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import java.io.File;
 import java.io.IOException;
 import java.io.Reader;
 
@@ -49,7 +43,7 @@ public class UserTest {
 //    }
 
     public static void main(String[] args){
-        String resource = "/com/springmvc4/map/MyBatisConfig.xml";
+        String resource = "/map/MyBatisConfig.xml";
         Reader reader = null;
         SqlSession session;
         try {

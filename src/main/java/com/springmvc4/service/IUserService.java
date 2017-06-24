@@ -4,19 +4,13 @@ import com.springmvc4.Dao.UserDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
+
 /**
  * Created by Gracecoder on 2017/6/22.
  */
 
-@Service
-public class UserService {
+public interface IUserService {
 
-    @Autowired
-    private UserDao userDao;
-
-    public String say()
-    {
-//        return userDao.say();
-        return "say";
-    }
+    public String say();
 }

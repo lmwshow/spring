@@ -7,10 +7,11 @@ import org.springframework.stereotype.Repository;
 /**
  * Created by Gracecoder on 2017/6/23.
  */
+
 public interface UserDao {
 //    public String say() {
 //        return "say";
 //    }
 
-    User findByid(int i);
+    User findById(int i);
 }

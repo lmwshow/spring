@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.springmvc4.Dao.UserDao">
+
+  <select id="findById"  parameterType="int"  resultType="com.springmvc4.domain.User">
+  	  select * from User where id=#{id}
+  </select>
+
+    <!--<select id="selectUsers" resultType="User">-->
+        <!--SELECT * FROM USER-->
+    <!--</select>-->
+
+
+    <!--<insert id="insertUser" parameterType="User" keyProperty="id" useGeneratedKeys="true">-->
+        <!--INSERT INTO USER-->
+        <!--(name,password) VALUES-->
+        <!--(#{name},#{password})-->
+    <!--</insert>-->
+
+    <!--&lt;!&ndash; update &ndash;&gt;-->
+    <!--<update id="updateUser" parameterType="User">-->
+        <!--UPDATE User SET-->
+        <!--name=#{name},-->
+        <!--password=#{password}-->
+        <!--WHERE id = #{id}-->
+    <!--</update>-->
+
+
+    <!--&lt;!&ndash; select之hashmap&ndash;&gt;-->
+    <!--<select id="loginSelect" resultType="User" parameterType="hashmap">-->
+        <!--select * from User where name=#{name} and password=#{password}-->
+    <!--</select>-->
+
+    <!--<select id="login2" resultType="User" parameterType="User">-->
+        <!--select * from User where name=#{name} and password=#{password}-->
+    <!--</select>-->
+    <!--<select id="selectUserList" resultType="User">-->
+        <!--select * from User-->
+    <!--</select>-->
+
+
+    <!--&lt;!&ndash; resultmap&ndash;&gt;-->
+    <!--<resultMap id="UserMap" type="User">-->
+        <!--<id property="id" column="id" />-->
+        <!--<result property="name" column="name"/>-->
+        <!--<result property="password" column="password"/>-->
+    <!--</resultMap>-->
+    <!--<select id="selectUsersList" resultMap="UserMap">-->
+        <!--select id, name, password from User-->
+    <!--</select>-->
+
+
+    <!--&lt;!&ndash; resultmap 与collection &ndash;&gt;-->
+    <!--<resultMap id="visitMap" type="User">-->
+        <!--<id property="id" column="id" />-->
+        <!--<result property="name" column="name" />-->
+        <!--<collection property="visitList" javaType="ArrayList"-->
+                    <!--column="visitID" ofType="com.minGW.pojo.Visit">-->
+            <!--<result property="visitID" column="visitID" />-->
+            <!--<result property="visitIP" column="visitIP" />-->
+            <!--<result property="visitDate" column="visitDate" />-->
+        <!--</collection>-->
+    <!--</resultMap>-->
+    <!--<select id="selectVisit" resultMap="visitMap">-->
+        <!--select * from User inner join visit on user.id=visit.userID-->
+    <!--</select>-->
+
+
+    <!--&lt;!&ndash; choose &ndash;&gt;-->
+    <!--<select id="selectUserChoose" resultType="User" parameterType="User">-->
+        <!--select * from User where 1=1-->
+        <!--<choose>-->
+            <!--<when test="name!=null">-->
+                <!--and name like #{name}-->
+            <!--</when>-->
+            <!--<when test="id!=0">-->
+                <!--and id =#{id}-->
+            <!--</when>-->
+
+            <!--<otherwise>-->
+                <!--and password is not null-->
+            <!--</otherwise>-->
+        <!--</choose>-->
+    <!--</select>-->
+    <!--&lt;!&ndash;where&ndash;&gt;-->
+    <!--<select id="selectUserWhere" resultType="User" parameterType="User">-->
+        <!--select * from User-->
+        <!--<where>-->
+            <!--<if test="name!=null">-->
+                <!--and name like #{name}-->
+            <!--</if>-->
+            <!--<if test="id!=null">-->
+                <!--and id =#{id}-->
+            <!--</if>-->
+        <!--</where>-->
+    <!--</select>-->
+    <!--&lt;!&ndash; set&ndash;&gt;-->
+    <!--<update id="updateSet" parameterType="User">-->
+        <!--update JiKeUser-->
+        <!--<set>-->
+            <!--<if test="name != null">name=#{name},</if>-->
+            <!--<if test="password != null">password=#{password},</if>-->
+        <!--</set>-->
+        <!--where id=#{id}-->
+    <!--</update>-->
+
+
+    <!--&lt;!&ndash; trim 只能识别 prefix表示加前缀，suffix表示加后缀 ，suffixOverrides判断后缀","是否需要去掉&ndash;&gt;-->
+    <!--<update id="updateUserTrim" parameterType="User">-->
+        <!--UPDATE User-->
+        <!--<trim prefix="SET" suffixOverrides="," suffix="WHERE id = #{id}" >-->
+            <!--<if test="name != null and name != '' ">-->
+                <!--name = #{name},-->
+            <!--</if>-->
+            <!--<if test="password != null and password != '' ">-->
+                <!--password=#{password},-->
+            <!--</if>-->
+        <!--</trim>-->
+    <!--</update>-->
+
+
+    <!--&lt;!&ndash; foreach 循环查询&ndash;&gt;-->
+    <!--<select id="selectUserForeach" resultType="User" parameterType="list">-->
+        <!--select * from user-->
+        <!--<where>-->
+            <!--id in-->
+            <!--<foreach item="item" index="index" collection="list"-->
+                     <!--open="(" separator="," close=")">-->
+                <!--#{item}-->
+            <!--</foreach>-->
+        <!--</where>-->
+    <!--</select>-->
+    <!--&lt;!&ndash; foreach 循环赋值&ndash;&gt;-->
+    <!--<insert id="insertUserForeach">-->
+        <!--insert into User (name, password) values-->
+        <!--<foreach item="item" index="key" collection="list"-->
+                 <!--open="" separator="," close="">(#{item.name}, #{item.password})-->
+        <!--</foreach>-->
+    <!--</insert>-->
+
+
+</mapper>

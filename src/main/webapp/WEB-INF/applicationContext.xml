@@ -1,7 +1,51 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
+    <context:component-scan base-package="com.springmvc4.*" />
+
+    <context:property-placeholder location="classpath:jdbc.properties"></context:property-placeholder>
+
+    <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource" init-method="init" destroy-method="close">
+        <property name="driverClassName" value="${driver}"/>
+        <property name="name" value="topsales-saas"/>
+        <property name="url" value="${url}" />
+        <property name="username" value="${username}" />
+        <property name="password" value="${password}" />
+        <property name="filters" value="stat" />
+        <property name="connectionProperties" value="druid.stat.slowSqlMillis=500" />
+
+        <property name="initialSize" value="5" />
+        <property name="maxActive" value="50" />
+        <property name="minIdle" value="1" />
+
+        <property name="poolPreparedStatements" value="false" /><!-- 缓存prepared statement， 对mysql无用，易造成性能损失-->
+        <property name="validationQuery" value="select 1" /> <!-- validate the connection when Borrow or Return from pool -->
+        <property name="testWhileIdle" value="true" /> <!-- 申请连接的时候检测，如果空闲时间大于timeBetweenEvictionRunsMillis，执行validationQuery检测连接是否有效。-->
+        <property name="testOnBorrow" value="true" />
+        <property name="testOnReturn" value="false" />
+        <property name="timeBetweenEvictionRunsMillis" value="40000" /><!-- 间隔40秒，有两个含义：1) Destroy线程会检测连接的间隔时间，如果连接空闲时间大于等于minEvictableIdleTimeMillis则关闭物理连接 2) testWhileIdle的判断依据，详细看testWhileIdle属性的说明 -->
+        <property name="minEvictableIdleTimeMillis" value="30000" />
+
+        <!--<property name="maxWait" value="60000" />--> <!--废弃-->
+        <!--<property name="maxOpenPreparedStatements" value="20" />-->
+    </bean>
+
+    <bean name="sqlSessionFactory" id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="dataSource" ref="dataSource"></property>
+        <property name="configLocation" value="classpath:MyBatisConfig.xml"></property>
+        <property name="mapperLocations" value="classpath*:com/springmvc4/map/*.xml" />
+    </bean>
+
+
+
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <property name="basePackage" value="com.springmvc4.Dao"/>
+        <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory" />
+    </bean>
 </beans>
+
+
 

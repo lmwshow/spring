@@ -5,8 +5,6 @@
          xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
          version="3.0">
 
-    <context:component-scan base-package="com.springmvc4" />
-    <mvc:annotation-driven />
 
 
     <listener>
@@ -15,7 +13,8 @@
 
     <context-param>
     <param-name>contextConfigLocation</param-name>
-    <param-value>classpath*:/WEB-INF/applicationContext.xml</param-value>
+    <param-value>/WEB-INF/applicationContext.xml
+    </param-value>
     </context-param>
 
 

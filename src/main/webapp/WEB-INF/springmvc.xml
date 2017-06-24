@@ -11,10 +11,8 @@
 	-->
     <!-- 1、配置映射器与适配器 -->
     <mvc:annotation-driven></mvc:annotation-driven>
-
     <context:component-scan base-package="com.springmvc4.web" />
-
-    <!-- 
+    <!--
     	模型解析，在请求时为模型视图名称添加前后缀 
     	比如在controller类中需要请求/WEB-INF/page/index.jsp文件，直接写index就可以了
     -->

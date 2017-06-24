@@ -11,9 +11,9 @@
     <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource" init-method="init" destroy-method="close">
         <property name="driverClassName" value="${driver}"/>
         <property name="name" value="topsales-saas"/>
-        <property name="url" value="${url}" />
-        <property name="username" value="${username}" />
-        <property name="password" value="${password}" />
+        <property name="url" value="jdbc:mysql://dev.mysql.apitops.com:4308/tops_building_saas?useUnicode=true"/>
+        <property name="username" value="KK_building" />
+        <property name="password" value="w8bWi4PBBVnM8qCXBuD75f85wop5oX" />
         <property name="filters" value="stat" />
         <property name="connectionProperties" value="druid.stat.slowSqlMillis=500" />
 

@@ -11,41 +11,16 @@
 
 <configuration>
 
-
-
-
-
     <!-- 懒加载配置 -->
     <settings>
         <setting name="lazyLoadingEnabled" value="true"/>
         <setting name="aggressiveLazyLoading" value="false"/>
     </settings>
 
-
     <!-- 别名配置 -->
     <typeAliases>
         <typeAlias type="com.springmvc4.domain.User" alias="User" />
     </typeAliases>
 
-    <!--&lt;!&ndash; 连库配置&ndash;&gt;-->
-    <!--<environments default="development">-->
-        <!--<environment id="development">-->
-            <!--<transactionManager type="JDBC">-->
-            <!--</transactionManager>-->
-            <!--<dataSource type="POOLED">-->
-                <!--<property name="driver" value="com.mysql.jdbc.Driver"/>-->
-                <!--<property name="url" value="jdbc:mysql://localhost:3306/springmvc"/>-->
-                <!--<property name="username" value="root"/>-->
-                <!--<property name="password" value="123456"/>-->
-            <!--</dataSource>-->
-        <!--</environment>-->
-    <!--</environments>-->
-
-
-
-
-    <!--<mappers>-->
-        <!--<mapper resource="com/springmvc4/map/User.xml"/>-->
-    <!--</mappers>-->
 
 </configuration>

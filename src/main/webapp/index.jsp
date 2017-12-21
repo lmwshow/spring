@@ -8,7 +8,7 @@
 </head>
 <body>
 	<div style="margin:0 auto; padding-top: 100px; font-size: 18px;" align="center">
-		<p><a href="/login"> 登录系统 </a></p>
+		<p><a href="/spring/login"> 登录系统 </a></p>
 	</div>
 
 

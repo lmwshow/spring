@@ -32,6 +32,8 @@ public class HelloController {
     @RequestMapping("/login")
     public String toLogin()
     {
+        System.out.println("hhh");
+
         return "login";
     }
 }

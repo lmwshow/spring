@@ -16,11 +16,9 @@
         <property name="password" value="${password}" />
         <property name="filters" value="stat" />
         <property name="connectionProperties" value="druid.stat.slowSqlMillis=500" />
-
         <property name="initialSize" value="5" />
         <property name="maxActive" value="50" />
         <property name="minIdle" value="1" />
-
         <property name="poolPreparedStatements" value="false" /><!-- 缓存prepared statement， 对mysql无用，易造成性能损失-->
         <property name="validationQuery" value="select 1" /> <!-- validate the connection when Borrow or Return from pool -->
         <property name="testWhileIdle" value="true" /> <!-- 申请连接的时候检测，如果空闲时间大于timeBetweenEvictionRunsMillis，执行validationQuery检测连接是否有效。-->
@@ -41,8 +39,6 @@
         <property name="mapperLocations" value="classpath*:map/User.xml" />
 
     </bean>
-
-
 
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
         <property name="basePackage" value="com.springmvc4.Dao"/>

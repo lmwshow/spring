@@ -9,9 +9,7 @@ import org.springframework.stereotype.Repository;
  */
 
 public interface UserDao {
-//    public String say() {
-//        return "say";
-//    }
+
 
     User findById(int i);
 }
